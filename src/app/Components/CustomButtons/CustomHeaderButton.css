@@ -1,0 +1,10 @@
+/* Customization of the patternfly header navigation button */
+
+.Masthead .headerNavButton{
+    --pf-c-button--m-tertiary--Color:  #d6d6d6;
+    --pf-c-button--m-tertiary--BackgroundColor:  #003D53;
+     --pf-c-button--m-link--Color: #E74F2A;
+     
+  }
+  
+  

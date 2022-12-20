@@ -4,7 +4,7 @@ import { PageSection, Title } from '@patternfly/react-core';
 const GeneralSettings: React.FunctionComponent = () => (
   <PageSection>
     <Title headingLevel="h1" size="lg">
-      Plop
+      General settings
     </Title>
   </PageSection>
 );

@@ -8,13 +8,12 @@ import {
   Td,
   ThProps,
 } from "@patternfly/react-table";
-import { Icon } from "@patternfly/react-core";
+import { Button, Icon } from "@patternfly/react-core";
 import ExclamationCircleIcon from "@patternfly/react-icons/dist/esm/icons/exclamation-circle-icon";
 import ExclamationTriangleIcon from "@patternfly/react-icons/dist/esm/icons/exclamation-triangle-icon";
 import CheckCircleIcon from "@patternfly/react-icons/dist/esm/icons/check-circle-icon";
 
 import {Worker,Totals} from "src/app/models";
-import CustomWorkersNameButton from "../CustomButtons/CustomWorkersNameButton";
 
 
 export const WorkersTable: React.FC<{
@@ -128,7 +127,7 @@ export const WorkersTable: React.FC<{
           {sortedWorkers.map((worker, rowIndex) => (
             <Tr key={rowIndex}>
               <Td dataLabel={columnNames.name}>
-                <CustomWorkersNameButton name={worker.name} />
+              <Button variant="tertiary" isSmall >{worker.name}</Button>
               </Td>
               {worker.hightRequestOrMemory === true ? (
                 <Td>

@@ -1,9 +1,0 @@
-/* Customization of workers name button */
-
-.workersNameButton {
-  --pf-c-button--BorderRadius : 15px;
-  --pf-c-button--m-primary--BackgroundColor: #607D8B;
-  --pf-c-button--m-primary--hover--BackgroundColor: #425762;
-}
-  
-  

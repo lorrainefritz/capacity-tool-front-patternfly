@@ -43,6 +43,6 @@ export const WorkersPage = () => {
     content = <WorkersTable workers={workers} totals={totals} />;
   }
 
-  return <React.Fragment>{content}</React.Fragment>;
+  return <React.Fragment><h1>WORKERS</h1>{content}</React.Fragment>;
 };
 

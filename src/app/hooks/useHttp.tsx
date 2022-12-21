@@ -1,3 +1,4 @@
+import * as React from "react";
 import { useState, useCallback } from 'react';
 
 const useHttp = () => {
@@ -18,8 +19,7 @@ const useHttp = () => {
         throw new Error('Request failed!');
       }
 
-      const data = await response.json();
-      applyData(data);
+      applyData(await response.json());
     } catch (err) {
      console.error(err);
     }

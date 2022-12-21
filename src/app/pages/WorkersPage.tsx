@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Spinner } from "@patternfly/react-core";
 
 import {Worker,Totals} from "src/app/models";
-import {WorkersTable }from "src/app/Components/Tables";
+import {WorkersTable }from "@app/Components/tables";
 import useHttp from "src/app/hooks/useHttp";
 import { properties } from "src/properties";
 

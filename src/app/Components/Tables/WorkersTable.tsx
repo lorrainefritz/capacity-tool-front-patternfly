@@ -13,15 +13,14 @@ import ExclamationCircleIcon from "@patternfly/react-icons/dist/esm/icons/exclam
 import ExclamationTriangleIcon from "@patternfly/react-icons/dist/esm/icons/exclamation-triangle-icon";
 import CheckCircleIcon from "@patternfly/react-icons/dist/esm/icons/check-circle-icon";
 
-import {Worker,Totals} from "src/app/models";
+import {Worker} from "src/app/models";
 
 
 export const WorkersTable: React.FC<{
   workers: Worker[];
-  totals: Totals;
 }> = (props) => {
   const workersList: Worker[] = props.workers;
-  // const totalList: Totals
+
 
   const columnNames = {
     name: "Worker",
@@ -187,25 +186,6 @@ export const WorkersTable: React.FC<{
             </Tr>
           ))}
         </Tbody>
-        <Thead>
-          <Tr>
-            <Td >Totals %</Td>
-            <Td />
-            <Td />
-            <Td />
-            <Td>{props.totals.prc_totCpu}%</Td>
-            <Td />
-            <Td>{props.totals.prc_totCpuRequest}%</Td>
-            <Td />
-            <Td>{props.totals.prc_totCpuLimit}%</Td>
-            <Td />
-            <Td>{props.totals.prc_totMem}%</Td>
-            <Td />
-            <Td>{props.totals.prc_totMemRequest}%</Td>
-            <Td />
-            <Td>{props.totals.prc_totMemlimit}%</Td>
-          </Tr>
-        </Thead>
       </TableComposable>
     </React.Fragment>
   );

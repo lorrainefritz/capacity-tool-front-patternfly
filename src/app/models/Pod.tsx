@@ -1,7 +1,7 @@
-export class Worker {
+export class Pod {
   name!: string;
-  allocatable_cpu!: number;
-  allocatable_memory!: number;
+  allocatable_cpu!: number | null;
+  allocatable_memory!: number | null;
   quota_request_cpu!: number;
   quota_request_memory!: number;
   current_cpu!: number;
@@ -27,10 +27,25 @@ export class Worker {
   nbrPods!: number;
   hightRequestOrMemory!: boolean;
   mediumRequestOrMemory!: boolean;
+  countRestart!: number;
+  namespace!: string;
+  appName!: string;
+  terminatedReason!: string;
+  container_memory_request!: number;
+  container_memory_limit!: number;
+  container_cpu_request!: number;
+  container_cpu_limit!: number;
+  cpuDisplay!: string;
+  memoryDisplay!: string;
+  usageCpu!: string;
+  maxCpu!: string;
+  usageMemory!: string;
+  maxMemory!: string;
+  podName!: string;
   percentageMaxCpu!: number;
   percentageMaxMemory!: number;
   perCpuFromCpuLimit!: string;
   perMemoryFromMemoryLimit!: string;
 }
 
-export default Worker;
+export default Pod;

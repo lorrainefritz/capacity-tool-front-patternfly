@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
-import { Dashboard } from '@app/Dashboard/Dashboard';
-import { Support } from '@app/Support/Support';
-import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
-import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
 import { NotFound } from '@app/NotFound/NotFound';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import { WorkersPage } from './pages/WorkersPage';
-
+import { EnvironmentsDetailsPage } from './pages/EnvironmentsDetailsPage'
+import { EnvironmentsSummaryPage } from './pages';
+import { TeamsPage } from './pages';
+import { DepartmentsPage } from './pages';
+import { AlertsPage } from './pages';
+import { WelcomePage as Home } from './pages'
 let routeFocusTimer: number;
 export interface IAppRoute {
   label?: string; // Excluding the label will exclude the route from the nav sidebar in AppLayout
@@ -28,43 +29,59 @@ export interface IAppRouteGroup {
 export type AppRouteConfig = IAppRoute | IAppRouteGroup;
 
 const routes: AppRouteConfig[] = [
+ 
+ 
   {
-    component: Dashboard,
-    exact: true,
-    label: 'Dashboard',
-    path: '/',
-    title: 'PatternFly Seed | Main Dashboard',
-  },
-  {
-    component: Support,
-    exact: true,
-    label: 'Support',
-    path: '/support',
-    title: 'PatternFly Seed | Support Page',
-  },
-  {
-    component: WorkersPage,
-    exact: true,
-    label: 'workers',
-    path: '/workers',
-    title: 'PatternFly Seed | Support Page',
-  },
-  {
-    label: 'Settings',
+    label: 'CapacityTool',
     routes: [
       {
-        component: GeneralSettings,
+        component: Home,
         exact: true,
-        label: 'General',
-        path: '/settings/general',
-        title: 'PatternFly Seed | General Settings',
+        label: 'Home',
+        path: '/',
+        title: 'PatternFly Seed | Support Page',
       },
       {
-        component: ProfileSettings,
+        component: WorkersPage,
         exact: true,
-        label: 'Profile',
-        path: '/settings/profile',
-        title: 'PatternFly Seed | Profile Settings',
+        label: 'Workers',
+        path: '/workers',
+        title: 'PatternFly Seed | Support Page',
+      },
+      {
+        component: EnvironmentsDetailsPage,
+        exact: true,
+        label: 'Environments Details',
+        path: '/environmentsDetails',
+        title: 'PatternFly Seed | Support Page',
+      },
+      {
+        component: EnvironmentsSummaryPage,
+        exact: true,
+        label: 'Environments Summary',
+        path: '/environmentsSummary',
+        title: 'PatternFly Seed | Support Page',
+      },
+      {
+        component: TeamsPage,
+        exact: true,
+        label: 'Teams',
+        path: '/teams',
+        title: 'PatternFly Seed | Support Page',
+      },
+      {
+        component: DepartmentsPage,
+        exact: true,
+        label: 'Departments',
+        path: '/departments',
+        title: 'PatternFly Seed | Support Page',
+      },
+      {
+        component: AlertsPage,
+        exact: true,
+        label: 'Alerts',
+        path: '/alers',
+        title: 'PatternFly Seed | Support Page',
       },
     ],
   },

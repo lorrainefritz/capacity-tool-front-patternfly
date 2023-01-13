@@ -1,27 +1,32 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Flex, PageSection, Spinner } from '@patternfly/react-core';
-import { Worker, Totals } from '../models';
-import { WorkersTable } from '../Components/tables';
+import { Environment, Totals } from '../models';
+import { EnvironmentsSummaryTable } from '../Components/tables';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
-import { WorkersPercentagesCPUChart, WorkersPercentagesMemoryChart } from '../Components/Diagrams';
+import { EnvironmentsPercentagesCPUChart, EnvironmentsPercentagesMemoryChart } from '../Components/Diagrams';
 
-export const WorkersPage = () => {
-  const [workers, setWorkers] = useState<Worker[]>([]);
+export const EnvironmentsSummaryPage = () => {
+  const [envSummary, setEnvSummary] = useState<Environment[]>([]);
   const [totals, setTotals] = useState<Totals>(new Totals());
   const { isLoading, error, sendRequest: fetch } = useHttp();
 
   useEffect(() => {
-    const transformWorkers = (workersObj) => {
-      setWorkers(workersObj);
+    const transformEnvironments = (environmentsObj) => {
+      setEnvSummary(environmentsObj);
     };
 
     const transformTotals = (totalsObj) => {
       setTotals(totalsObj);
     };
 
-    fetch({ url: `${properties.path.api}/nodes` }, transformWorkers);
+    fetch(
+      {
+        url: `${properties.path.api}/environments`,
+      },
+      transformEnvironments
+    );
 
     fetch(
       {
@@ -46,14 +51,14 @@ export const WorkersPage = () => {
       </PageSection>
     );
   }
-  if (workers.length > 0 && totals != null) {
+  if (envSummary.length > 0 && totals != null) {
     content = (
       <React.Fragment>
         <PageSection>
-          <WorkersTable workers={workers} totals={totals} />{' '}
+          <EnvironmentsSummaryTable environments={envSummary} totals={totals} />{' '}
           <Flex style={{ border: '1px solid RGB(231, 231, 231)' }} justifyContent={{ default: 'justifyContentCenter' }}>
-            <WorkersPercentagesCPUChart totals={totals} />
-            <WorkersPercentagesMemoryChart totals={totals} />
+            <EnvironmentsPercentagesCPUChart totals={totals} />
+            <EnvironmentsPercentagesMemoryChart totals={totals} />
           </Flex>
         </PageSection>
       </React.Fragment>
@@ -62,3 +67,4 @@ export const WorkersPage = () => {
 
   return <React.Fragment>{content}</React.Fragment>;
 };
+export default EnvironmentsSummaryPage;

@@ -1,7 +1,10 @@
-export class Worker {
+import Pod from "./Pod";
+
+export class Namespace {
   name!: string;
-  allocatable_cpu!: number;
-  allocatable_memory!: number;
+  podListByNamespace!: Pod[];
+  allocatable_cpu!: number | null;
+  allocatable_memory!: number | null;
   quota_request_cpu!: number;
   quota_request_memory!: number;
   current_cpu!: number;
@@ -27,10 +30,30 @@ export class Worker {
   nbrPods!: number;
   hightRequestOrMemory!: boolean;
   mediumRequestOrMemory!: boolean;
+  protectedByLimits!: boolean;
+  protectedByQuotas!: boolean;
+  rollingUpdate!: boolean;
+  container_memory_request!: number;
+  container_memory_limit!: number;
+  container_cpu_request!: number;
+  container_cpu_limit!: number;
+  newRequest_cpu!: number;
+  newLimit_cpu!: number;
+  newRequest_memory!: number;
+  newLimit_memory!: number;
+  per_newRequest_cpu!: number;
+  per_newLimit_cpu!: number;
+  per_newRequest_memory!: number;
+  per_newLimit_memory!: number;
+  nbrPodPossibleToDeploy!: number;
+  nbrPodSimulation!: number;
+  limitsRecommendations!: string | null;
+  containsRedis!: boolean;
+  team!: string;
+  valueChain!: string | null;
+  teamEmail!: string | null;
   percentageMaxCpu!: number;
   percentageMaxMemory!: number;
   perCpuFromCpuLimit!: string;
   perMemoryFromMemoryLimit!: string;
 }
-
-export default Worker;

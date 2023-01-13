@@ -1,9 +1,7 @@
 
-// export {EnvironmentsDetailsTable} from "./EnvironmentsDetailsTable";
-// export {EnvironmentsSummaryTable} from "./EnvironmentsSummaryTable";
-// export {PodsTable} from "./PodsTable";
-
-// export {Test} from "./Test";
-// export {Test2} from "./Test2";
-
+export {EnvironmentsDetailsTable} from "./EnvironmentsDetailsTable";
+export {EnvironmentsSummaryTable} from "./EnvironmentsSummaryTable";
+export {PodsTable} from "./PodsTable";
 export {WorkersTable} from "./WorkersTable";
+export {DepartmentsTable} from "./DepartmentsTable";
+export {TeamsTable} from "./TeamsTable";

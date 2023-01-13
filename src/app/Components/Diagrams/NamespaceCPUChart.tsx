@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
-import { Namespace } from "../../models";
+import { Namespace } from "../../models/Namespace";
 
 export const NamespaceCPUChart: React.FC<{
   namespace: Namespace;

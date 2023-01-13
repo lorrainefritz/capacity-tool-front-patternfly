@@ -5,7 +5,7 @@ import {
   ChartDonutUtilization,
   ChartThemeColor,
 } from "@patternfly/react-charts";
-import { Totals } from "../../models";
+import { Totals } from "../../models/Totals";
 
 export const EnvironmentsPercentagesMemoryChart: React.FC<{
   totals: Totals;

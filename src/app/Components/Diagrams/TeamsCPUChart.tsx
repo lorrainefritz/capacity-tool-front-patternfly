@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ChartBullet } from "@patternfly/react-charts";
-import { Team } from "../../models";
+import { Team } from "../../models/Team";
 
 export const TeamsCPUChart: React.FC<{
   team: Team;

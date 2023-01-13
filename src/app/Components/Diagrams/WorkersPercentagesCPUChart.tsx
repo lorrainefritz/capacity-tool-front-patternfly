@@ -5,7 +5,7 @@ import {
   ChartDonutUtilization,
   ChartThemeColor,
 } from "@patternfly/react-charts";
-import { Totals } from "src/models";
+import { Totals } from "../../models/Totals";
 
 export const WorkersPercentagesCPUChart: React.FC<{
   totals: Totals;

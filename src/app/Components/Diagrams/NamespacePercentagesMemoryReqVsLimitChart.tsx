@@ -5,7 +5,7 @@ import {
   ChartDonutUtilization,
   ChartThemeColor,
 } from "@patternfly/react-charts";
-import { Namespace } from "../../models";
+import { Namespace } from "../../models/Namespace";
 
 export const NamespacePercentagesMemoryReqVsLimitChart: React.FC<{
   namespace: Namespace;

@@ -7,7 +7,7 @@ import {
   Tbody,
   Td,
 } from "@patternfly/react-table";
-import { Alert } from "src/models";
+import { Alert } from "../../../models";
 
 export const PodsWithHighMemoryConsumptionTable: React.FC<{
   namespaceShortAlerts: Alert[];

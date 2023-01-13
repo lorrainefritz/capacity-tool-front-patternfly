@@ -2,12 +2,10 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { PageSection, Spinner } from '@patternfly/react-core';
 import { Alert } from '../models';
-import {
-  PodsIntempestivRestartTable,
-  PodsWithHighCpuConsumptionTable,
-  PodsWithHighMemoryConsumptionTable,
-  ProjectsWithoutLimitsOrQuotasTable,
-} from '../Components/tables/AlertTables';
+import {PodsIntempestivRestartTable} from '../Components/tables/AlertTables/PodsIntempestivRestartTable';
+import {PodsWithHighCpuConsumptionTable} from '../Components/tables/AlertTables/PodsWithHighCpuConsumptionTable';
+import {PodsWithHighMemoryConsumptionTable} from '../Components/tables/AlertTables/PodsWithHighMemoryConsumptionTable';
+import {ProjectsWithoutLimitsOrQuotasTable} from '../Components/tables/AlertTables/ProjectsWithoutLimitsOrQuotasTable';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
 import { ExpandableSectionWithTitle } from '../utils';

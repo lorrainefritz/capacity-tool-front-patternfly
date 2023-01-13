@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Tabs, Tab, TabTitleText } from "@patternfly/react-core";
 import { Environment } from "../models";
-import { EnvironmentsDetailsTable } from "../Components/tables";
+import { EnvironmentsDetailsTable } from "../Components/tables/EnvironmentsDetailsTable";
 
 export const EnvironmentsToTableMappingHandler: React.FC<{
   environments: Environment[];

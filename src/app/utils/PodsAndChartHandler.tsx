@@ -6,7 +6,7 @@ import {
 } from "../Components/Diagrams";
 import { NamespaceCPUChart } from "../Components/Diagrams";
 import { NamespaceMemoryChart } from "../Components/Diagrams";
-import { PodsTable } from "../Components/tables/PodsTable";
+import { PodsTable } from "src/app/Components/tables/PodsTable";
 
 export const PodsAndChartHandler: React.FC<{
   namespace: Namespace;

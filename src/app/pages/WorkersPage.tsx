@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Flex, PageSection, Spinner } from '@patternfly/react-core';
 import { Worker, Totals } from '../models';
-import { WorkersTable } from '../Components/tables/WorkersTable';
+import { WorkersTable } from 'src/app/Components/tables/WorkersTable'
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
 import { WorkersPercentagesCPUChart, WorkersPercentagesMemoryChart } from '../Components/Diagrams';

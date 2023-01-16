@@ -2,7 +2,7 @@ import * as React from "react";
 import { Team } from "../models";
 import { Tabs, Tab, TabTitleText, Flex } from "@patternfly/react-core";
 import { TeamsCPUChart } from "../Components/Diagrams";
-import { TeamsTable } from "../Components/tables/TeamsTable";
+import { TeamsTable } from "src/app/Components/tables/TeamsTable";
 
 export const TeamsToTableMappingHandler: React.FC<{
   teams: Team[];

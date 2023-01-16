@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Flex, PageSection, Spinner } from '@patternfly/react-core';
 import { Environment, Totals } from '../models';
-import { EnvironmentsSummaryTable } from 'src/app/Components/tables/EnvironmentsSummaryTable';
+import { EnvironmentsSummaryTable } from '../Components/Table';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
 import { EnvironmentsPercentagesCPUChart, EnvironmentsPercentagesMemoryChart } from '../Components/Diagrams';

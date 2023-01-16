@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Tabs, Tab, TabTitleText } from "@patternfly/react-core";
-import { DepartmentsTable } from "src/app/Components/tables/DepartmentsTable";
+import { DepartmentsTable } from "../Components/Table";
 import { Department } from "../models";
 
 export const DepartmentsToTableMappingHandler: React.FC<{

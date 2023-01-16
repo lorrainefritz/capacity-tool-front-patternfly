@@ -80,7 +80,7 @@ const routes: AppRouteConfig[] = [
         component: AlertsPage,
         exact: true,
         label: 'Alerts',
-        path: '/alers',
+        path: '/alerts',
         title: 'PatternFly Seed | Support Page',
       },
     ],

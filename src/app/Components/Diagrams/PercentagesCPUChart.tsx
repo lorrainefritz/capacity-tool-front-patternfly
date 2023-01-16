@@ -7,7 +7,7 @@ import {
 } from "@patternfly/react-charts";
 import { Totals } from "../../models/Totals";
 
-export const WorkersPercentagesMemoryChart: React.FC<{
+export const PercentagesCPUChart: React.FC<{
   totals: Totals;
 }> = (props) => {
   let totals = props.totals;
@@ -21,7 +21,7 @@ export const WorkersPercentagesMemoryChart: React.FC<{
         ]}
         height={350}
         labels={({ datum }) => (datum.x ? datum.x : null)}
-        name="WorkersPercentagesMemoryChart"
+        name="WorkersPercentagesCPUChart"
         padding={{
           bottom: 125, // Adjusted to accommodate legend
           left: 20,
@@ -31,17 +31,17 @@ export const WorkersPercentagesMemoryChart: React.FC<{
         width={230}
       >
         <ChartDonutUtilization
-          data={{ x: "CPU", y: totals.prc_totMem }}
+          data={{ x: "CPU", y: totals.prc_totCpu }}
           labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : null)}
           legendData={[
-            { name: `usage Memory: ` + totals.prc_totMem + ` %` },
+            { name: `usage CPU: ` + totals.prc_totCpu + ` %` },
             { name: "Warning threshold at 60%" },
             { name: "Danger threshold at 90%" },
           ]}
           legendOrientation="vertical"
           legendPosition="bottom"
           subTitle="of 100 %"
-          title={totals.prc_totMem + `%`}
+          title={totals.prc_totCpu + `%`}
           themeColor={ChartThemeColor.blue}
           thresholds={[{ value: 60 }, { value: 90 }]}
         />

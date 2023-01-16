@@ -5,9 +5,10 @@ import {
   ChartDonutUtilization,
   ChartThemeColor,
 } from "@patternfly/react-charts";
+
 import { Totals } from "../../models/Totals";
 
-export const EnvironmentsPercentagesMemoryChart: React.FC<{
+export const PercentagesRequestCPUChart: React.FC<{
   totals: Totals;
 }> = (props) => {
   let totals = props.totals;
@@ -21,7 +22,7 @@ export const EnvironmentsPercentagesMemoryChart: React.FC<{
         ]}
         height={350}
         labels={({ datum }) => (datum.x ? datum.x : null)}
-        name="chart13"
+        name="environmentsPercentagesCPUChart"
         padding={{
           bottom: 125, // Adjusted to accommodate legend
           left: 20,
@@ -31,20 +32,17 @@ export const EnvironmentsPercentagesMemoryChart: React.FC<{
         width={230}
       >
         <ChartDonutUtilization
-          constrainToVisibleArea
-          data={{ x: "CPU", y: totals.prc_totMemRequest }}
+          data={{ x: "CPU", y: totals.prc_totCpuRequest }}
           labels={({ datum }) => (datum.x ? `${datum.x}: ${datum.y}%` : null)}
           legendData={[
-            {
-              name: `total requests Memory: ` + totals.prc_totMemRequest + ` %`,
-            },
+            { name: `total requests CPU: ` + totals.prc_totCpuRequest + ` %` },
             { name: "Warning threshold at 60%" },
             { name: "Danger threshold at 90%" },
           ]}
           legendOrientation="vertical"
           legendPosition="bottom"
           subTitle="of 100 %"
-          title={totals.prc_totMemRequest + `%`}
+          title={totals.prc_totCpuRequest + `%`}
           themeColor={ChartThemeColor.blue}
           thresholds={[{ value: 60 }, { value: 90 }]}
         />

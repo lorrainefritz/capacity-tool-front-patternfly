@@ -5,7 +5,7 @@ import { Environment, Totals } from '../models';
 import { EnvironmentsSummaryTable } from '../Components/Table';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
-import { EnvironmentsPercentagesCPUChart, EnvironmentsPercentagesMemoryChart } from '../Components/Diagrams';
+import { PercentagesCPUChart, PercentagesMemoryChart, PercentagesRequestCPUChart, PercentagesRequestMemoryChart } from '../Components/Diagrams';
 
 export const EnvironmentsSummaryPage = () => {
   const [envSummary, setEnvSummary] = useState<Environment[]>([]);
@@ -57,8 +57,10 @@ export const EnvironmentsSummaryPage = () => {
         <PageSection>
           <EnvironmentsSummaryTable environments={envSummary} totals={totals} />{' '}
           <Flex style={{ border: '1px solid RGB(231, 231, 231)' }} justifyContent={{ default: 'justifyContentCenter' }}>
-            <EnvironmentsPercentagesCPUChart totals={totals} />
-            <EnvironmentsPercentagesMemoryChart totals={totals} />
+            <PercentagesCPUChart totals={totals} />
+            <PercentagesMemoryChart totals={totals} />
+            <PercentagesRequestCPUChart totals={totals} />
+            <PercentagesRequestMemoryChart totals={totals} />
           </Flex>
         </PageSection>
       </React.Fragment>

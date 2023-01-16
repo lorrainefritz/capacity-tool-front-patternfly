@@ -5,7 +5,7 @@ import { Worker, Totals } from '../models';
 import { WorkersTable } from '../Components/Table'
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
-import { WorkersPercentagesCPUChart, WorkersPercentagesMemoryChart } from '../Components/Diagrams';
+import { PercentagesCPUChart, PercentagesMemoryChart, PercentagesRequestCPUChart, PercentagesRequestMemoryChart } from '../Components/Diagrams';
 
 export const WorkersPage = () => {
   const [workers, setWorkers] = useState<Worker[]>([]);
@@ -52,8 +52,10 @@ export const WorkersPage = () => {
         <PageSection>
           <WorkersTable workers={workers} totals={totals} />{' '}
           <Flex style={{ border: '1px solid RGB(231, 231, 231)' }} justifyContent={{ default: 'justifyContentCenter' }}>
-            <WorkersPercentagesCPUChart totals={totals} />
-            <WorkersPercentagesMemoryChart totals={totals} />
+          <PercentagesCPUChart totals={totals} />
+            <PercentagesMemoryChart totals={totals} />
+            <PercentagesRequestCPUChart totals={totals} />
+            <PercentagesRequestMemoryChart totals={totals} />
           </Flex>
         </PageSection>
       </React.Fragment>

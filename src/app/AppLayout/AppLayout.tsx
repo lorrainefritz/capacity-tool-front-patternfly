@@ -38,7 +38,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       history.push('/');
     }
     return (
-      <img src={logo} onClick={handleClick} alt="PatternFly Logo" />
+      <img src={logo} onClick={handleClick} alt=" Logo" />
     );
   }
 

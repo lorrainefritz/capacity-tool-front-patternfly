@@ -1,5 +1,5 @@
 export const properties = {
     path : {
-        api: "https://capacity-tool-route-capacity-tool-dev.apps.ocp-lab.its4u.eu/api/v1/"
+        api: "https://capacity-tool-capacity-tool.apps.ocp-lab.its4u.eu/api/v1/"
     }
 }

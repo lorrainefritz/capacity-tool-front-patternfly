@@ -5,7 +5,12 @@ import { Environment, Totals } from '../models';
 import { EnvironmentsSummaryTable } from '../Components/Table';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
-import { PercentagesCPUChart, PercentagesMemoryChart, PercentagesRequestCPUChart, PercentagesRequestMemoryChart } from '../Components/Diagrams';
+import {
+  PercentagesCPUChart,
+  PercentagesMemoryChart,
+  PercentagesRequestCPUChart,
+  PercentagesRequestMemoryChart,
+} from '../Components/Diagrams';
 
 export const EnvironmentsSummaryPage = () => {
   const [envSummary, setEnvSummary] = useState<Environment[]>([]);
@@ -40,14 +45,16 @@ export const EnvironmentsSummaryPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured +{error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl" />
+        </div>
       </PageSection>
     );
   }
@@ -64,6 +71,14 @@ export const EnvironmentsSummaryPage = () => {
           </Flex>
         </PageSection>
       </React.Fragment>
+    );
+  }
+
+  if (envSummary.length == 0 && totals == null && isLoading == false) {
+    content = (
+      <PageSection>
+        <h1>No environments to display</h1>
+      </PageSection>
     );
   }
 

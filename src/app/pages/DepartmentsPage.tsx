@@ -27,14 +27,16 @@ export const DepartmentsPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured +{error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl" />
+        </div>
       </PageSection>
     );
   }
@@ -42,6 +44,13 @@ export const DepartmentsPage = () => {
     content = (
       <PageSection>
         <DepartmentsToTableMappingHandler departments={departments} />
+      </PageSection>
+    );
+  }
+  if (departments.length == 0 && isLoading == false) {
+    content = (
+      <PageSection>
+        <h1>No departments to display</h1>
       </PageSection>
     );
   }

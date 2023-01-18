@@ -2,10 +2,10 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { PageSection, Spinner } from '@patternfly/react-core';
 import { Alert } from '../models';
-import {PodsIntempestivRestartTable} from '../Components/Table/AlertTables';
-import {PodsWithHighCpuConsumptionTable} from '../Components/Table/AlertTables';
-import {PodsWithHighMemoryConsumptionTable} from '../Components/Table/AlertTables';
-import {ProjectsWithoutLimitsOrQuotasTable} from '../Components/Table/AlertTables';
+import { PodsIntempestivRestartTable } from '../Components/Table/AlertTables';
+import { PodsWithHighCpuConsumptionTable } from '../Components/Table/AlertTables';
+import { PodsWithHighMemoryConsumptionTable } from '../Components/Table/AlertTables';
+import { ProjectsWithoutLimitsOrQuotasTable } from '../Components/Table/AlertTables';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
 import { ExpandableSectionWithTitle } from '../utils';
@@ -78,20 +78,21 @@ export const AlertsPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured +{error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl" />
+        </div>
       </PageSection>
     );
   } else {
     content = (
       <PageSection>
-        {' '}
         <React.Fragment>
           <ExpandableSectionWithTitle title="Projects without Default limits">
             <ProjectsWithoutLimitsOrQuotasTable alerts={projectsWithoutLimits} />

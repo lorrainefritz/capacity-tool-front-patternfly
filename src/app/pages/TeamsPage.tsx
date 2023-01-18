@@ -26,14 +26,16 @@ export const TeamsPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured +{error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl" />
+        </div>
       </PageSection>
     );
   }
@@ -41,6 +43,13 @@ export const TeamsPage = () => {
     content = (
       <PageSection>
         <TeamsToTableMappingHandler teams={teams} />
+      </PageSection>
+    );
+  }
+  if (teams.length == 0 && isLoading == false) {
+    content = (
+      <PageSection>
+        <h1>No teams to display</h1>
       </PageSection>
     );
   }

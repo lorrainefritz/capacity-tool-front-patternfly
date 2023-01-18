@@ -2,10 +2,15 @@ import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { Flex, PageSection, Spinner } from '@patternfly/react-core';
 import { Worker, Totals } from '../models';
-import { WorkersTable } from '../Components/Table'
+import { WorkersTable } from '../Components/Table';
 import useHttp from '../hooks/useHttp';
 import { properties } from 'src/properties';
-import { PercentagesCPUChart, PercentagesMemoryChart, PercentagesRequestCPUChart, PercentagesRequestMemoryChart } from '../Components/Diagrams';
+import {
+  PercentagesCPUChart,
+  PercentagesMemoryChart,
+  PercentagesRequestCPUChart,
+  PercentagesRequestMemoryChart,
+} from '../Components/Diagrams';
 
 export const WorkersPage = () => {
   const [workers, setWorkers] = useState<Worker[]>([]);
@@ -35,14 +40,16 @@ export const WorkersPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured +{error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl" />
+        </div>
       </PageSection>
     );
   }
@@ -52,13 +59,20 @@ export const WorkersPage = () => {
         <PageSection>
           <WorkersTable workers={workers} totals={totals} />{' '}
           <Flex style={{ border: '1px solid RGB(231, 231, 231)' }} justifyContent={{ default: 'justifyContentCenter' }}>
-          <PercentagesCPUChart totals={totals} />
+            <PercentagesCPUChart totals={totals} />
             <PercentagesMemoryChart totals={totals} />
             <PercentagesRequestCPUChart totals={totals} />
             <PercentagesRequestMemoryChart totals={totals} />
           </Flex>
         </PageSection>
       </React.Fragment>
+    );
+  }
+  if (workers.length == 0 && totals == null && isLoading == false) {
+    content = (
+      <PageSection>
+        <h1>No workers to display</h1>
+      </PageSection>
     );
   }
 

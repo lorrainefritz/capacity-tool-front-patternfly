@@ -27,14 +27,16 @@ export const EnvironmentsDetailsPage = () => {
   if (error) {
     content = (
       <PageSection>
-        <React.Fragment>{error}</React.Fragment>
+        <React.Fragment>Oops an error occured + {error}</React.Fragment>
       </PageSection>
     );
   }
   if (isLoading) {
     content = (
       <PageSection>
-        <Spinner />
+        <div style={{ margin: '0', position: 'absolute', top: '50%', left: '50%' }}>
+          <Spinner isSVG size="xl"/>
+        </div>
       </PageSection>
     );
   }
@@ -46,6 +48,12 @@ export const EnvironmentsDetailsPage = () => {
         </React.Fragment>
       </PageSection>
     );
+  }
+  if ( envDetails.length == 0 && isLoading== false )  {
+    content = (
+    <PageSection>
+      <h1>No environments to display</h1>
+    </PageSection>)
   }
   return <React.Fragment>{content}</React.Fragment>;
 };

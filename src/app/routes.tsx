@@ -9,6 +9,7 @@ import { TeamsPage } from './pages';
 import { DepartmentsPage } from './pages';
 import { AlertsPage } from './pages';
 import { WelcomePage as Home } from './pages'
+import {FormPage} from './pages'
 let routeFocusTimer: number;
 export interface IAppRoute {
   label?: string; // Excluding the label will exclude the route from the nav sidebar in AppLayout
@@ -82,6 +83,13 @@ const routes: AppRouteConfig[] = [
         label: 'Alerts',
         path: '/alerts',
         title: 'CapacityTool Alerts',
+      },
+      {
+        component: FormPage,
+        exact: true,
+        label: 'FormPage',
+        path: '/formPage',
+        title: 'Form Page',
       },
     ],
   },
